@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "./dist/print-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
