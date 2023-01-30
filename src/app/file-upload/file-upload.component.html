@@ -1,0 +1,32 @@
+<br /><br />
+
+<div class="container">
+  <div class="row">
+    <h3>Upload the file</h3>
+  </div>
+  <br /><br />
+
+  <div class="input-group mb-3">
+    <div class="custom-file">
+      <input
+        type="file"
+        (change)="upload($event)"
+        class="custom-file-input"
+        id="inputGroupFile02"
+      />
+      <label class="custom-file-label" for="inputGroupFile02"></label>
+    </div>
+    <!-- <div class="input-group-append">
+      <span class="input-group-text" id="">Upload</span>
+    </div> -->
+  </div>
+  <br /><br />
+
+  <div class="row">
+    <div class="col-1">
+      <button type="button" class="btn btn-primary" (click)="uploadImage()">
+        Upload
+      </button>
+    </div>
+  </div>
+</div>
