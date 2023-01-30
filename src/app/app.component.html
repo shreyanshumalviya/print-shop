@@ -1,13 +1,1 @@
-<br />
-
-<button
-  style="margin: 20px"
-  type="button"
-  class="btn btn-primary"
-  (click)="switchPage()"
->
-  TO PRITER/BACK
-</button>
-
-<app-printer *ngIf="printer == true"></app-printer>
-<app-file-upload *ngIf="printer == false"></app-file-upload>
+<router-outlet></router-outlet>
