@@ -13,13 +13,13 @@ import {
 })
 export class FileUploadComponent {
   title = 'print-app';
-  progress: String | undefined = undefined
+  progress: String | undefined = undefined;
   path: any = '';
 
   constructor(private storage: Storage) {}
 
   uploadImage() {
-    const mountainsRef = ref(this.storage, this.path.name);
+    const mountainsRef = ref(this.storage, 'mountains.jpg');
     const uploadTask = uploadBytesResumable(mountainsRef, this.path);
 
     uploadTask.on(
@@ -27,11 +27,11 @@ export class FileUploadComponent {
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        this.progress = "Uploading!";
+        this.progress = 'Uploading!';
         console.log('Upload is ' + progress + '% done');
         switch (snapshot.state) {
           case 'paused':
-            this.progress = progress + "% uploaded, Upload Paused";
+            this.progress = progress + '% uploaded, Upload Paused';
             console.log('Upload is paused');
             break;
           case 'running':
@@ -39,9 +39,11 @@ export class FileUploadComponent {
             break;
         }
       },
-      (error) => { this.progress = "upload Failed!";},
+      (error) => {
+        this.progress = 'upload Failed!';
+      },
       () => {
-        this.progress = "File uploaded, ask to print!";
+        this.progress = 'File uploaded, ask to print!';
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log('File available at', downloadURL);
         });
